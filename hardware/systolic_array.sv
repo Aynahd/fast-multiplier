@@ -121,6 +121,28 @@ module systolic_array #(
             .n_r0y(n_r0y), .n_r1y(n_r1y), .n_r2y(n_r2y), .n_r3y(n_r3y), .n_r4y(n_r4y), .n_r5y(n_r5y), .n_r6y(n_r6y), .n_r7y(n_r7y)
 
     );
+    RF registerFile(
+        .clk(clk),
+        .rf_en(enable),
+                
+        .write(write),
+
+        .idx(idx_buffer),
+        
+        .data_in_0(data_buffer[0]),
+        .data_in_1(data_buffer[1]),
+        .data_in_2(data_buffer[2]),
+        .data_in_3(data_buffer[3]),
+        .data_in_4(data_buffer[4]),
+        .data_in_5(data_buffer[5]),
+        .data_in_6(data_buffer[6]),
+        .data_in_7(data_buffer[7]),
+
+
+        .x(x),
+        .w(w)
+
+    );
   
   
             
