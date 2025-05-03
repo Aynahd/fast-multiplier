@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // each pe is a multiply and accumulator.
-module processing_element #(
+module hpe(
     parameter int WIDTH = 8  // 8-bit data
     )(
     input logic clk,

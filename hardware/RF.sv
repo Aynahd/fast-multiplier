@@ -14,8 +14,8 @@ module rf (
     input logic [7:0] data_in_7,
 
 
-    output logic [WIDTH - 1:0] x [0:7];
-    output logic [WIDTH - 1 :0] w [0:7];
+    output logic [7:0] x_out [0:7],
+    output logic [7:0] w_out [0:7]
 );
 
 

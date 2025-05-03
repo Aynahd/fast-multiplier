@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module systolic_array #(
+module systolic_array (
  // 4 by 4 matrices for now, 8 bit data
     parameter int SIZE = 4,  
     parameter int WIDTH = 8
@@ -54,13 +54,14 @@ module systolic_array #(
  // system verilog does 
  
  // Internal wires for a_out and b_out from each PE
- reg [SIZE-1:0] data_buffer [0:7];
- reg [2:0]idx_buffer = 0;
- //reg []  CHECK THIS  
+ reg [3:0] data_buffer [0:7];
+ reg [1:0]idx_buffer = 0;
+ reg [2:0] reg_select_buffer = 0;
+
  
  initial begin
-    for(integer i = 0; i < 16; i =i+1 ) begin 
-        data_buffer[i[3:0]] = 16'b0;
+    for(integer i = 0; i < 8; i =i+1 ) begin 
+        data_buffer[i] = 8'b0;
         end
         end
         
@@ -97,7 +98,7 @@ module systolic_array #(
   wire [15:0] n_r0y, n_r1y, n_r2y, n_r3y;
   
   
-  tile8x8 systolicArray8x8(
+  tile4x4 systolicArray4x4(
             // AUX
             .reset(reset),
             .clk(clk), .enable(enable),
